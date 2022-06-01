@@ -1,0 +1,19 @@
+{
+  "name": "knewsfeedvanilla",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuestonP/knewsfeed.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/QuestonP/knewsfeed/issues"
+  },
+  "homepage": "https://github.com/QuestonP/knewsfeed#readme"
+}

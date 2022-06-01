@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Bitter:wght@300&display=swap');
+
+
+*{
+    font-family: "Arvo", Serif;
+    
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+#pageName{
+    font-style: italic;
+    margin-top: 10px;
+
+}
+
+#pageName a{
+    text-decoration: none;
+    color: black;
+}
+
+.news-sections a{
+    text-decoration: none;
+    color: inherit;
+}
+#headline2{
+    height: 60%;
+    overflow-y: scroll;
+    margin-top: 20px;
+}
+
+.textHeadline{
+    margin-top: 10px;
+}
