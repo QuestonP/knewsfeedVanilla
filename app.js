@@ -42,7 +42,7 @@ const fetchGeneralNews = async () => {
     if(response.status >=200 && response.status < 300){
         const resJson = await response.json();
         newsDataArray = resJson.articles;
-        console.log(resJson);
+        console.log(newsDataArray);
         console.log(response.status, response.statusText);
     } else{
         console.log(response.status, response.statusText);
@@ -145,14 +145,9 @@ const fetchSportsNews = async () => {
 
 function displayNews(){
     
-    if(newsDataArray.length = 0){
-        newsDetails.innerHTML = "<h5>No data found...<h5>";
-        return;
-    }
-
     newsDataArray.forEach(news =>{
 
-        var date = news.publishedAt().split(); 
+        var date = news.publishedAt.split(); 
 
         let link = document.createElement('a');
         link.className="btn btn-dark";
@@ -160,20 +155,21 @@ function displayNews(){
         link.href = news.url;
         link.innerHTML = "Visit Site";
 
+
         var colum = document.createElement('div');
-        colum.className = "col-sm-12 col-md-4 col-lg-3 p-2";
+        colum.className = "col-12 ";
 
         var card = document.createElement('div');
         colum.className = "px-2 py-2";
 
         var img = document.createElement('img');
         img.setAttribute("height", "matchparent");
-        img.setAttribute("width", "100%");
+        img.setAttribute("width", "70%");
         img.src= news.urlToImage;
 
         var cardBody = document.createElement('div');
         var newsHeading = document.createElement('div');
-        newsHeading.className = "card-title";
+        newsHeading.className = "card-title fw-bold";
         newsHeading.innerHTML = news.title;
 
         let dateHeading = document.createElement('h6');
@@ -181,7 +177,7 @@ function displayNews(){
         dateHeading.innerHTML = date[0];
 
         let descritpion = document.createElement('p');
-        descritpion.className = "text-dark";
+        descritpion.className = "text-dark text-wrap";
         descritpion.innerHTML = news.descritpion;
 
         cardBody.appendChild(newsHeading);
@@ -192,8 +188,11 @@ function displayNews(){
         card.appendChild(img);
         card.appendChild(cardBody);
 
-        colum.appendChild(card);
-        newsDetails.appendChild(colum);
+        colum.append(card);
+    
+
+        newsDetails.append(colum);
+        
 
     });
 }
