@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/QuestonP/knewsfeed/issues"
   },
-  "homepage": "https://github.com/QuestonP/knewsfeed#readme"
+  "homepage": "https://github.com/QuestonP/knewsfeed#readme",
+  "dependencies": {
+    "jquery": "^3.6.0"
+  }
 }

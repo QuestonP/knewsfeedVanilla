@@ -12,7 +12,7 @@
      crossorigin="anonymous">
      <link rel="stylesheet" href="style.css">
 
-    <title>Knewsfeed</title>
+    <title id="pageName">Knewsfeed</title>
   </head>
 
     <body class="container-fluid vw-100 vh-100">
@@ -32,29 +32,29 @@
       </nav>
     
       <div class="news-sections btn-group d-flex my-1 mx-2 ">
-        <input type="radio" name="choose-news" id="politics-radio" class="btn-check" autocomplete="off">
+        <!-- <input type="radio" name="choose-news" id="politics-radio" class="btn-check" autocomplete="off">
         <label for="politics-radio" class="btn btn-outline-dark btn-sm text-black fs-italic"><a href="./pages/poli.html">Political</a></label>
-    
+     -->
         <input type="radio" name="choose-news" id="tech-radio" class="btn-check" autocomplete="off">
         <label for="tech-radio" class="btn btn-outline-dark btn-sm text-black fs-italic"><a href="./pages/tech.html">Tech</a></label>
-    
+<!--     
         <input type="radio" name="choose-news" id="science-radio" class="btn-check" autocomplete="off">
-        <label for="science-radio" class="btn btn-outline-dark btn-sm text-black fs-italic"><a href="./pages/science.html">Science</a></label>
+        <label for="science-radio" class="btn btn-outline-dark btn-sm text-black fs-italic"><a href="./pages/science.html">Science</a></label> -->
     
         <input type="radio" name="choose-news" id="sports-radio" class="btn-check" autocomplete="off">
         <label for="sports-radio" class="btn btn-outline-dark btn-sm text-black fs-italic"><a href="./pages/sports.html">Sports</a></label>
     
         <input type="radio" name="choose-news" id="economy-radio" class="btn-check" autocomplete="off">
         <label for="economy-radio" class="btn btn-outline-dark btn-sm text-black fs-italic"><a href="./pages/econ.html">Economics</a></label>
-    
+<!--     
         <input type="radio" name="choose-news" id="art-radio" class="btn-check" autocomplete="off">
-        <label for="art-radio" class="btn btn-outline-dark btn-sm text-black fs-italic"><a href="./pages/arts.html">Art</a></label>
-    
+        <label for="art-radio" class="btn btn-outline-dark btn-sm text-black fs-italic"><a href="./pages/arts.html">Art</a></label> -->
+<!--     
         <input type="radio" name="choose-news" id="fashion-radio" class="btn-check" autocomplete="off">
-        <label for="fashion-radio" class="btn btn-outline-dark btn-sm text-black fs-italic"><a href="./pages/fashion.html">Fashion</a></label>
-    
+        <label for="fashion-radio" class="btn btn-outline-dark btn-sm text-black fs-italic"><a href="./pages/fashion.html">Fashion</a></label> -->
+<!--     
         <input type="radio" name="choose-news" id="gaming-radio" class="btn-check" autocomplete="off">
-        <label for="gaming-radio" class="btn btn-outline-dark btn-sm text-black fs-italic"><a href="./pages/game.html">Gaming</a></label>
+        <label for="gaming-radio" class="btn btn-outline-dark btn-sm text-black fs-italic"><a href="./pages/game.html">Gaming</a></label> -->
     
         <input type="radio" name="choose-news" id="health-radio" class="btn-check" autocomplete="off">
         <label for="health-radio" class="btn btn-outline-dark btn-sm text-black fs-italic"><a href="./pages/health.html">Health</a></label>
@@ -67,12 +67,14 @@
       </div>
 
     
-      <section class="mainbody">
+      <section id="mainbody" class="container">
+        <div class="col-6" id="newsType"></div>
     
-        
     
       </section>
     
+
+
       <footer class="container-fluid text-white vw-100">
         
       </footer>
@@ -89,5 +91,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" 
     integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" 
     crossorigin="anonymous"></script>
+    <script src="/app.js"></script>
+
   </body>
 </html>
