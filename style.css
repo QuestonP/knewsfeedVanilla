@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Arvo&family=Bitter:wght@300&display=swap');
 
 
@@ -9,8 +10,10 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: white;
+    background-color: #efefef;
+    width: 100%;
 }
+
 #pageName{
     font-style: italic;
     margin-top: 10px;
@@ -34,4 +37,10 @@ body{
 
 .textHeadline{
     margin-top: 10px;
+}
+
+#newsType{
+    height: 500px;
+    overflow-y: scroll;
+    margin: 10px;
 }

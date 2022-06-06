@@ -14,6 +14,7 @@ businessBtn = document.getElementById("economy-radio");
 techBtn = document.getElementById("tech-radio");
 sportsBtn = document.getElementById("sports-radio");
 entertainmentBtn = document.getElementById("culture-radio");
+videoBtn = document.getElementById("watch-radio");
 
 
 
@@ -75,6 +76,7 @@ const fetchEntertainmentNews = async () => {
     if(response.status >=200 && response.status < 300){
         const resJson = await response.json();
         newsDataArray = resJson.articles;
+        console.log(resJson);
     } else {
         console.log(response.status, response.statusText);
     }
@@ -119,7 +121,8 @@ const fetchTechNews = async () => {
     if(response.status >=200 && response.status < 300){
         const resJson = await response.json();
         newsDataArray = resJson.articles;
-    }else {
+        console.log(resJson);
+    } else{
         console.log(response.status, response.statusText);
     }
 
@@ -133,6 +136,7 @@ const fetchSportsNews = async () => {
     if(response.status >=200 && response.status < 300){
         const resJson = await response.json();
         newsDataArray = resJson.articles;
+        console.log(resJson);
     }else{
         console.log(response.status, response.statusText);
     }
@@ -153,18 +157,18 @@ function displayNews(){
         link.className="btn btn-dark";
         link.setAttribute("target", "blank");
         link.href = news.url;
-        link.innerHTML = "Visit Site";
-
+        link.innerHTML = "Visit Site To Learn More..";
 
         var colum = document.createElement('div');
-        colum.className = "col-12 ";
+        colum.className = "col-sm-2 col-md-4 col-lg-6";
+        colum.id = "column"
 
         var card = document.createElement('div');
-        colum.className = "px-2 py-2";
+        card.className = "px-2 py-2";
 
         var img = document.createElement('img');
         img.setAttribute("height", "matchparent");
-        img.setAttribute("width", "70%");
+        img.setAttribute("width", "100%");
         img.src= news.urlToImage;
 
         var cardBody = document.createElement('div');
@@ -173,7 +177,7 @@ function displayNews(){
         newsHeading.innerHTML = news.title;
 
         let dateHeading = document.createElement('h6');
-        dateHeading.className = "text-danger";
+        dateHeading.className = "text-dark";
         dateHeading.innerHTML = date[0];
 
         let descritpion = document.createElement('p');
@@ -190,9 +194,7 @@ function displayNews(){
 
         colum.append(card);
     
-
         newsDetails.append(colum);
-        
 
     });
 }
@@ -200,30 +202,38 @@ function displayNews(){
 //functions 
 generalBtn.addEventListener("click", function(){
     fetchGeneralNews();
+    newsDetails.innerHTML = '<h3>General News</h3>';
+    newsDetails.className = "text-center justify-content-center";
 });
 
 healthBtn.addEventListener("click", function(){
     fetchHealthNews();
+    newsDetails.innerHTML = '<h3>Health News</h3>';
+    newsDetails.className = "text-center justify-content-center";
 });
 
 businessBtn.addEventListener("click", function(){
     fetchBusinessNews();
-    
+    newsDetails.innerHTML = '<h3>Business News</h3>';
+    newsDetails.className = "text-center justify-content-center";
 });
 
 techBtn.addEventListener("click", function(){
     fetchTechNews();
-    
+    newsDetails.innerHTML = '<h3>Tech News</h3>';
+    newsDetails.className = "text-center justify-content-center";
 });
 
 sportsBtn.addEventListener("click", function(){
     fetchSportsNews();
-    
+    newsDetails.innerHTML = '<h3>Sports News</h3>';
+    newsDetails.className = "text-center justify-content-center";
 });
 
 entertainmentBtn.addEventListener("click", function(){
     fetchEntertainmentNews();
-    
+    newsDetails.innerHTML = '<h3>Entertainment News</h3>';
+    newsDetails.className = "text-center justify-content-center";
 });
 
 //generalBtn = document.getElementById("politics-radio");
