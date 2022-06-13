@@ -14,15 +14,21 @@ body{
     width: 100%;
 }
 
-#pageName{
-    font-style: italic;
-    margin-top: 10px;
-
+.news-sections label{
+    font-style: bold;
 }
 
-#pageName a{
+#pageTitle{
+    font-style: italic;
+    margin-top: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+
+#pageTitle a{
     text-decoration: none;
     color: black;
+    
 }
 
 .news-sections a{
@@ -34,13 +40,57 @@ body{
     overflow-y: scroll;
     margin-top: 20px;
 }
+#searchBox{
+    background-color: white;
+}
 
 .textHeadline{
     margin-top: 10px;
+
 }
 
 #newsType{
     height: 500px;
     overflow-y: scroll;
     margin: 10px;
+    background-color: white;
+}
+
+#newsQuery{
+    outline: none;
+    border: none;
+    height: 1%;
+}
+
+#pageName{
+    border-radius: 15px;
+}
+
+#options ul{
+    border-radius: 15px;
+}
+
+#Header{
+    opacity: 75%;
+    height: fit-content;
+    background-color: white;
+}
+
+@keyframes techPage{
+    from{
+        background-color: #efefef;
+    }
+
+    50%{
+        background-color: rgb(193, 218, 193);
+    }
+
+    to{
+        background-color: rgb(166, 233, 166);
+    }
+}
+
+section div{
+    background-color: white;
+    border-radius: 15px;
 }

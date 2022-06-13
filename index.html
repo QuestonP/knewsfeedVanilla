@@ -12,50 +12,69 @@
      crossorigin="anonymous">
      <link rel="stylesheet" href="style.css">
 
-    <title id="pageName">Knewsfeed</title>
+    <title>Knewsfeed</title>
   </head>
 
-    <body class="container-fluid vw-100 vh-100">
-      <nav class="navbar row text-black d-flex justify-content-center" style="width: 100%;">
-    
-        <div class="btn-group" role="group" aria-label="top toggles">
-    
-            <input type="radio" name="choose-region" id="usa-radio" class="btn-check" autocomplete="off">
-            <label for="usa-radio" class="btn btn-outline-dark text-black fw-bold">USA</label>
-            <input type="radio" name="choose-region" id="inter-radio" class="btn-check" autocomplete="off">
-            <label for="inter-radio" class="btn btn-outline-dark text-black fw-bold">International</label>
+    <body class="container-fluid">
+
+      <nav class="navbar text-black mx-2" >
+        <div class="d-flex vw-100" > 
+          <h1 class="display-5" id="pageTitle"><a href="/index.html">KnewsFeed</a></h1>
+          <div id="Header" class="position-absolute ms-auto end-0 opacity-50 rounded" style="width: 30%;"></div>
         </div>
-    
-        <div class="d-flex justify-content-center vw-100">
-          <h1 class="display-5" id="pageName"><a href="/index.html">Knewsfeed</a></h1>
+
+        <div class="d-flex rounded ms-2 p-2" id="searchBox" style="width: 65%;">
+        <img src="./images/search.png" class="border-end me-1 px-2" style="width:5%;" alt="search">
+        <input type="text" placeholder="What are you looking for..?" class="my-2 mx-2 bg-transparent" style="width: 100%;" id="newsQuery">
         </div>
+
       </nav>
     
-      <div class="news-sections btn-group d-flex my-1 mx-2 ">
-    
-        <input type="radio" name="choose-news" id="tech-radio" class="btn-check" autocomplete="off">
-        <label for="tech-radio" class="btn btn-outline-dark btn-sm text-black fs-italic">Tech</label>
-    
-        <input type="radio" name="choose-news" id="sports-radio" class="btn-check" autocomplete="off">
-        <label for="sports-radio" class="btn btn-outline-dark btn-sm text-black fs-italic">Sports</label>
-    
-        <input type="radio" name="choose-news" id="economy-radio" class="btn-check" autocomplete="off">
-        <label for="economy-radio" class="btn btn-outline-dark btn-sm text-black fs-italic">Business</label>
 
-    
-        <input type="radio" name="choose-news" id="health-radio" class="btn-check" autocomplete="off">
-        <label for="health-radio" class="btn btn-outline-dark btn-sm text-black fs-italic">Health</label>
+      <section class="container position-absolute left-0 d-flex align-baseline" id="newsSection">
         
-        <input type="radio" name="choose-news" id="culture-radio" class="btn-check" autocomplete="off">
-        <label for="culture-radio" class="btn btn-outline-dark btn-sm text-black fs-italic">Entertainment</label>
-    
-        <input type="radio" name="choose-news" id="watch-radio" class="btn-check" autocomplete="off">
-        <label for="watch-radio" class="btn btn-outline-dark btn-sm text-black fs-italic">Videos</label>
-      </div>
+        <div class="news-sections btn-group d-inline-block align-top mt-2 mx-2 bg-light" id="options" style="height: fit-content;">
+          <ul class="list-group list-unstyled position-stick">
+            
+          <li><input type="radio" name="choose-news" id="pageName" class="btn-check" autocomplete="off" style="height: 14.25%;">
+            <label for="pageName" class="btn btn-outline-secondary btn-sm list-group-item text-black border-0 fs-italic fs-bold py-4">Home</label></li>
 
-      <section id="newsSection">
-      <div class="row" id="newsType"></div>
-      <div class="row" id="mainbody"></div>
+          <li><input type="radio" name="choose-news" id="tech-radio" class="btn-check" autocomplete="off" style="height: 14.25%;">
+            <label for="tech-radio" class="btn btn-outline-success btn-sm list-group-item text-black fs-italic fs-bold py-4 border-0">Tech</label></li>
+
+            <li>
+              <input type="radio" name="choose-news" id="sports-radio" class="btn-check" autocomplete="off" style="height: 14.25%;">
+              <label for="sports-radio" class="btn btn-outline-primary btn-sm list-group-item text-black fs-italic py-4 border-0">Sports</label></li>
+
+              <li>
+                <input type="radio" name="choose-news" id="economy-radio" class="btn-check" autocomplete="off" style="height: 14.25%;">
+                <label for="economy-radio" class="btn btn-outline-danger btn-sm list-group-item text-black fs-italic py-4 border-0">Business</label></li>
+  
+                <li>
+                  <input type="radio" name="choose-news" id="health-radio" class="btn-check" autocomplete="off" style="height: 14.25%;">
+                  <label for="health-radio" class="btn btn-outline-dark btn-sm list-group-item text-black fs-italic py-4 border-0">Health</label></li>
+
+                  <li>
+                    <input type="radio" name="choose-news" id="culture-radio" class="btn-check" autocomplete="off" style="height: 14.25%;">
+                    <label for="culture-radio" class="btn btn-outline-warning list-group-item btn-sm text-black fs-italic py-4 border-0">Entertainment</label></li>
+
+                    <li>
+                      <input type="radio" name="choose-news" id="save-radio" class="btn-check" autocomplete="off" style="height: 14.25%;">
+                      <label for="save-radio" class="btn btn-outline-info btn-sm list-group-item rounded text-black fs-italic py-4 border-0">Saved</label></li>
+          </ul>
+        </div>
+        
+        <div class=""></div>
+
+      <div class="col-7 my-2 row p-2" id="newsType"></div>
+
+      <!-- <div class="col-4 bg-warning mx-2 my-2 card bg-secondary" id="mainbody">
+        <div class="card-body" style="width: 50%;" id="">
+          <h5 class="card-title">Card one</h5>
+          <p class="card-text">Information on the news article here</p>
+        </div> 
+      </div> -->
+
       </section>
 
 
