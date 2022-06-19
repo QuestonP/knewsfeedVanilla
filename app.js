@@ -5,6 +5,7 @@ let newsDataArray = [];
 const newsQuery = document.getElementById("newsQuery");
 const newsDetails = document.getElementById("newsType");
 const newsSection = document.getElementById("mainbody");
+const stockSide = document.getElementById('stockUpdates');
 
 // Buttons 
 
@@ -19,16 +20,43 @@ page = document.getElementById("Header");
 
 
 
+// API Stocks
+// const stockApiKey = 'CVB77TROLN34RSSA'; //"Q4Z33L_hksraPQp3rQdOr9pygMXkMm99";
+// const stocks = f`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${stockName}&interval=5min&apikey=${stockApiKey}`;
+// const stockName = 'APPL';
+// let stockDataArr =[];
+
+// const fetchStockData = async () => {
+//     const response = await fetch(stocks);
+//     stockDataArr = [];
+
+//         const resJson = await response.json();
+//         stockDataArr = resJson.results;
+//         console.log(resJson.status, resJson.statusText);
+    
+
+//     displayStockData();
+// }
 
 
-// API
-const apiKey = "df662c9306b94bcaaab1069c8a3aade6";
+// function displayStockData(){
+//     stockDataArr.forEach( stock => {
+//         stock['h'];
+//     });
+
+// }
+
+
+
+// API News
+const NewsapiKey = "df662c9306b94bcaaab1069c8a3aade6";
 const GENERAL_NEWS_US = "https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=df662c9306b94bcaaab1069c8a3aade6";
 const HEALTH_NEWS = "https://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=df662c9306b94bcaaab1069c8a3aade6";
 const ECON_NEWS = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=df662c9306b94bcaaab1069c8a3aade6";
 const TECH_NEWS = "https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=df662c9306b94bcaaab1069c8a3aade6";
 const SPORTS_NEWS = "https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=df662c9306b94bcaaab1069c8a3aade6";
 const MUSIC_NEWS = "https://newsapi.org/v2/top-headlines?country=us&category=entertainment&apiKey=df662c9306b94bcaaab1069c8a3aade6";
+const SEARCH_NEWS = "https://newsapi.org/v2/everything?q="
 
 let lat = 35.996653; 
 let lon = -78.9018053;
@@ -57,7 +85,7 @@ function displayWeather(){
     const cardHeader = document.createElement('h6');
     const cardImg = document.createElement('img');
 
-    if(weatherData[1][0]['main'] == 'Clouds') {
+    if(weatherData[1][0]['main'] == 'Clouds' || weatherData[1][0]['main'] == "Fog" ) {
         cardHeader.innerHTML = "Current Temperature: " + weatherData[0]['temp']+ "F";
         cardImg.src = '/images/cloudy.gif';
         cardImg.setAttribute('width', '20%');
@@ -92,7 +120,7 @@ function displayWeather(){
        
         }
     
-        if(weatherData[1][0]['main'] == 'Thunder' ||weatherData[1][0]['main'] == 'Stormy' ) {
+        if(weatherData[1][0]['main'] == "Thunderstorm" ||weatherData[1][0]['main'] == 'Stormy' ) {
             cardHeader.innerHTML = "Current Temperature: " + weatherData[0]['temp']+ "F";
             cardImg.src = './images/storm.gif';
             cardImg.setAttribute('width', '20%');
@@ -106,10 +134,12 @@ function displayWeather(){
     cardBody.classList.add('card-body');
     cardBody.classList.add('d-flex', 'justify-content-center', 'text-black', 'rounded');
     cardBody.style.backgroundColor = 'white';
+    cardBody.style.lineHeight = '200%';
     weatherData[1].icon; 
     const weatherDescript = document.createElement('p');
     weatherDescript.innerHTML = 'Highs of: ' + weatherData[0].temp_max + '\n' + " Lows of: " + weatherData[0].temp_min;
     weatherDescript.classList.add('mx-2');
+    weatherDescript.style.lineHeight = "200%";
     
 
 
@@ -118,7 +148,7 @@ function displayWeather(){
     cardBody.append(cardImg);
     cardBody.append(weatherDescript);
     card.append(cardBody);
-    card.classList.add('border', 'border-1','border-dark');
+    card.style.height = '100%';
     page.append(card);
     
 
@@ -150,22 +180,6 @@ const fetchGeneralNews = async () => {
     displayNews();
 }
 
-const fetchSearchNews = async () => {
-
-    if(newsQuery === null){
-        return;
-    }
-    const response = await fetch(searchNews+newsQuery.value+"&apiKey="+apiKey);
-    newsDataArray = [];
-
-    if(response.status >=200 && response.status < 300){
-        const resJson = await response.json();
-        newsDataArray = resJson.articles;
-    } else {
-        console.log(response.status, response.statusText);
-    }
-    displayNews();
-}
 
 const fetchEntertainmentNews = async () => {
     const response = await fetch(MUSIC_NEWS);
@@ -242,6 +256,21 @@ const fetchSportsNews = async () => {
     displayNews();
 }
 
+const fetchQueryNews = async () => {
+    const response = await fetch(SEARCH_NEWS+newsQuery.value+"&apiKey="+NewsapiKey);
+    newsDataArray = [];
+
+    if(response.status >=200 && response.status < 300){
+        const resJson = await response.json();
+        newsDataArray = resJson.articles;
+        console.log(resJson);
+    }else{
+        console.log(response.status, response.statusText);
+    }
+
+    displayNews();
+}
+
 
 
 
@@ -258,7 +287,7 @@ function displayNews(){
         link.innerHTML = "Learn More..";
 
         var colum = document.createElement('div');
-        colum.className = "col-lg-6 col-sm-12 col-md-9";
+        colum.className = "col-lg-4 col-sm-12 col-md-6";
         colum.id = "column"
 
         var colum2 = document.createElement('div');
@@ -347,6 +376,12 @@ entertainmentBtn.addEventListener("click", function(){
     document.querySelector('body').style.backgroundColor = '#FFFF66';
 });
 
+newsQuery.addEventListener("change", function(){
+    fetchQueryNews();
+    newsDetails.innerHTML = '<h3>Search Results</h3>';
+    newsDetails.classList.add("text-center", "justify-content-center");
+    document.querySelector('body').style.backgroundColor = '#ffdab9';
+});
 //generalBtn = document.getElementById("politics-radio");
 
 

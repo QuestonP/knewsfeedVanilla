@@ -4,6 +4,7 @@
 
 *{
     font-family: "Arvo", Serif;
+    border-radius: 10px;
     
 }
 
@@ -16,6 +17,10 @@ body{
 
 .news-sections label{
     font-style: bold;
+}
+
+.news-sections label :active {
+
 }
 
 #pageTitle{
@@ -42,6 +47,7 @@ body{
 }
 #searchBox{
     background-color: white;
+    border-radius: 20px;
 }
 
 .textHeadline{
@@ -59,22 +65,19 @@ body{
 #newsQuery{
     outline: none;
     border: none;
-    height: 1%;
-}
-
-#pageName{
+    height: 15px;
     border-radius: 15px;
 }
 
-#options ul{
-    border-radius: 15px;
-}
+
 
 #Header{
     opacity: 75%;
     height: fit-content;
     background-color: white;
+    line-height: 200%;
 }
+
 
 @keyframes techPage{
     from{
@@ -92,5 +95,5 @@ body{
 
 section div{
     background-color: white;
-    border-radius: 15px;
+   
 }
