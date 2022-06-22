@@ -1,10 +1,11 @@
 {
   "name": "knewsfeedvanilla",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,9 @@
   },
   "homepage": "https://github.com/QuestonP/knewsfeed#readme",
   "dependencies": {
-    "jquery": "^3.6.0"
+    "cheerio": "^1.0.0-rc.11",
+    "express": "^4.18.1",
+    "jquery": "^3.6.0",
+    "nodemon": "^2.0.16"
   }
 }

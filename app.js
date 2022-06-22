@@ -1,6 +1,7 @@
 
-// Variables 
 
+
+// Variables 
 let newsDataArray = [];
 const newsQuery = document.getElementById("newsQuery");
 const newsDetails = document.getElementById("newsType");
@@ -9,42 +10,15 @@ const stockSide = document.getElementById('stockUpdates');
 
 // Buttons 
 
-generalBtn = document.getElementById("pageName");
-healthBtn = document.getElementById("health-radio");
-businessBtn = document.getElementById("economy-radio");
-techBtn = document.getElementById("tech-radio");
-sportsBtn = document.getElementById("sports-radio");
-entertainmentBtn = document.getElementById("culture-radio");
-saveBtn = document.getElementById("save-radio");
-page = document.getElementById("Header");
+let generalBtn = document.getElementById("pageName");
+let healthBtn = document.getElementById("health-radio");
+let businessBtn = document.getElementById("economy-radio");
+let techBtn = document.getElementById("tech-radio");
+let sportsBtn = document.getElementById("sports-radio");
+let entertainmentBtn = document.getElementById("culture-radio");
+let saveBtn = document.getElementById("save-radio");
+let page = document.getElementById("Header");
 
-
-
-// API Stocks
-// const stockApiKey = 'CVB77TROLN34RSSA'; //"Q4Z33L_hksraPQp3rQdOr9pygMXkMm99";
-// const stocks = f`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${stockName}&interval=5min&apikey=${stockApiKey}`;
-// const stockName = 'APPL';
-// let stockDataArr =[];
-
-// const fetchStockData = async () => {
-//     const response = await fetch(stocks);
-//     stockDataArr = [];
-
-//         const resJson = await response.json();
-//         stockDataArr = resJson.results;
-//         console.log(resJson.status, resJson.statusText);
-    
-
-//     displayStockData();
-// }
-
-
-// function displayStockData(){
-//     stockDataArr.forEach( stock => {
-//         stock['h'];
-//     });
-
-// }
 
 
 
@@ -85,7 +59,7 @@ function displayWeather(){
     const cardHeader = document.createElement('h6');
     const cardImg = document.createElement('img');
 
-    if(weatherData[1][0]['main'] == 'Clouds' || weatherData[1][0]['main'] == "Fog" ) {
+    if(weatherData[1][0]['main'] == 'Clouds' || weatherData[1][0]['main'] == "Fog" ||  weatherData[1][0]['main'] == "Smoke"  ) {
         cardHeader.innerHTML = "Current Temperature: " + weatherData[0]['temp']+ "F";
         cardImg.src = '/images/cloudy.gif';
         cardImg.setAttribute('width', '20%');
@@ -382,26 +356,10 @@ newsQuery.addEventListener("change", function(){
     newsDetails.classList.add("text-center", "justify-content-center");
     document.querySelector('body').style.backgroundColor = '#ffdab9';
 });
-//generalBtn = document.getElementById("politics-radio");
 
 
 
-
-
-
-
-// search button
-// generalBtn.addEventListner("click", function(){
-//     fetchGeneralNews();
-    
-// });
-
-
-
-
-
-
-
+// Stock implementation
 
 
 
