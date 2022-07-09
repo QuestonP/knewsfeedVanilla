@@ -97,3 +97,9 @@ section div{
     background-color: white;
    
 }
+
+#buttonContainer button{
+    outline: none;
+    border-width: 1px;
+    background-color: white;
+}

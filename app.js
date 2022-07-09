@@ -1,12 +1,37 @@
 
 
+// server implementation 
+
+let mostActiveBtn = document.getElementById('mostActive-radio')
+let trendingBtn = document.getElementById('trending-radio')
+let StocksArr = []
+let baseUrl = 'http://localhost:3000/'
+const stockSide = document.getElementById('stockUpdates')
+
+
+mostActiveBtn.addEventListener('click', getMostActiveStockData())
+
+
+
+async function getMostActiveStockData(){
+
+    fetch(baseUrl+'stocks')
+    .then(res => res.json())
+    .then(data => {
+        data.forEach(stock => {
+
+        })
+    })
+     
+}
+
+
 
 // Variables 
 let newsDataArray = [];
 const newsQuery = document.getElementById("newsQuery");
 const newsDetails = document.getElementById("newsType");
 const newsSection = document.getElementById("mainbody");
-const stockSide = document.getElementById('stockUpdates');
 
 // Buttons 
 
@@ -261,7 +286,7 @@ function displayNews(){
         link.innerHTML = "Learn More..";
 
         var colum = document.createElement('div');
-        colum.className = "col-lg-4 col-sm-12 col-md-6";
+        colum.className = "col-lg-6 col-sm-12 col-md-6";
         colum.id = "column"
 
         var colum2 = document.createElement('div');
