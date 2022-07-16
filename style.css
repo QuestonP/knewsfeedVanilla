@@ -11,16 +11,29 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: #efefef;
+    background-color: aliceblue;
     width: 100%;
+    border-top: solid black;
+    border-width: thick;
+    border-radius: 0;
+    position: fixed;
 }
 
-.news-sections label{
+#stockSection ::-webkit-scrollbar {
+    display: none;
+}
+
+nav{
+    position:fixed;
+}
+
+#navBox{
+    border-bottom: solid black thin;
+    border-radius: 0;
+}
+
+#news-sections label{
     font-style: bold;
-}
-
-.news-sections label :active {
-
 }
 
 #pageTitle{
@@ -48,6 +61,7 @@ body{
 #searchBox{
     background-color: white;
     border-radius: 20px;
+    outline: solid black thin;
 }
 
 .textHeadline{
@@ -58,9 +72,12 @@ body{
 #newsType{
     height: 500px;
     overflow-y: scroll;
-    margin: 10px;
-    background-color: white;
+    background-color: whitesmoke;
 }
+
+#newsType::-webkit-scrollbar {
+    display: none; 
+  }
 
 #newsQuery{
     outline: none;
@@ -72,34 +89,45 @@ body{
 
 
 #Header{
-    opacity: 75%;
-    height: fit-content;
-    background-color: white;
+    background-color: aliceblue;
     line-height: 200%;
+    position: fixed;
+    margin-right: 10px;
+    margin-bottom: 10px;
+
 }
 
 
-@keyframes techPage{
-    from{
-        background-color: #efefef;
-    }
 
-    50%{
-        background-color: rgb(193, 218, 193);
-    }
+  
 
-    to{
-        background-color: rgb(166, 233, 166);
-    }
+section{
+    background-color: whitesmoke;
 }
 
-section div{
-    background-color: white;
-   
-}
+
+
 
 #buttonContainer button{
     outline: none;
     border-width: 1px;
     background-color: white;
 }
+
+#stockSection{
+    overflow-y: scroll;
+    height: 500px;
+    max-width: 100%;
+    overflow-x: hidden;
+    
+}
+#stockSection::-webkit-scrollbar {
+    display: none; 
+  }
+
+  marquee{
+    margin: 0;
+    padding: 0;
+    background-color: red;
+
+  }

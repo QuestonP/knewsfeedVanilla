@@ -2,28 +2,91 @@
 
 // server implementation 
 
-let mostActiveBtn = document.getElementById('mostActive-radio')
-let trendingBtn = document.getElementById('trending-radio')
-let StocksArr = []
-let baseUrl = 'http://localhost:3000/'
-const stockSide = document.getElementById('stockUpdates')
 
+function getMostActiveStockData(){
 
-mostActiveBtn.addEventListener('click', getMostActiveStockData())
-
-
-
-async function getMostActiveStockData(){
-
-    fetch(baseUrl+'stocks')
+    fetch(baseUrl+'active')
     .then(res => res.json())
     .then(data => {
+        console.log(data);
         data.forEach(stock => {
+            const row = document.createElement('div');
+            row.classList.add('row');
+            
+        
+
+            const symbolCol = document.createElement('div');
+            symbolCol.classList.add('col-4');
+            symbolCol.innerHTML = stock[0];
+
+            const volumeCol = document.createElement('div');
+            symbolCol.classList.add('col-4');
+            volumeCol.innerHTML = stock[1];
+            
+            const changeCol = document.createElement('div');
+            symbolCol.classList.add('col-4');
+            changeCol.innerHTML = stock[2];
+
+            row.append(symbolCol);
+            row.append(volumeCol);
+            row.append(changeCol);
+
+            stockSide.appendChild(row);
+
 
         })
     })
      
 }
+
+// function getTrendingStockData(){
+
+    
+//     fetch(baseUrl+'trending')
+//     .then(res => res.json())
+//     .then(data => {
+//         console.log(data);
+//         data.forEach(stock => {
+//             const row = document.createElement('div');
+//             row.classList.add('row');
+            
+        
+
+//             const symbolCol = document.createElement('div');
+//             symbolCol.classList.add('col-1');
+//             symbolCol.innerHTML = stock[0];
+
+//             const volumeCol = document.createElement('div');
+//             symbolCol.classList.add('col-9');
+//             volumeCol.innerHTML = stock[1];
+            
+//             const changeCol = document.createElement('div');
+//             symbolCol.classList.add('col-2');
+//             changeCol.innerHTML = stock[2];
+
+//             row.append(symbolCol);
+//             row.append(volumeCol);
+//             row.append(changeCol);
+
+
+//             stockSide.appendChild(row);
+
+
+//         })
+//     })
+     
+// }
+
+// const mostActiveBtn = document.getElementById('mostActive-radio')
+// const trendingBtn = document.getElementById('trending-radio')
+let StocksArr = []
+let baseUrl = 'http://localhost:3000/'
+let stockSide = document.getElementById('stockSection')
+
+// mostActiveBtn.onclick = getMostActiveStockData()
+
+// trendingBtn.onclick = getTrendingStockData()
+
 
 
 
@@ -133,21 +196,18 @@ function displayWeather(){
     cardBody.classList.add('card-body');
     cardBody.classList.add('d-flex', 'justify-content-center', 'text-black', 'rounded');
     cardBody.style.backgroundColor = 'white';
-    cardBody.style.lineHeight = '200%';
+    cardBody.style.lineHeight = '100%';
     weatherData[1].icon; 
     const weatherDescript = document.createElement('p');
     weatherDescript.innerHTML = 'Highs of: ' + weatherData[0].temp_max + '\n' + " Lows of: " + weatherData[0].temp_min;
     weatherDescript.classList.add('mx-2');
-    weatherDescript.style.lineHeight = "200%";
+    weatherDescript.style.lineHeight = "100%";
     
-
-
-
+    card.style.marginBottom = '5%'
     cardBody.append(cardHeader);
     cardBody.append(cardImg);
     cardBody.append(weatherDescript);
     card.append(cardBody);
-    card.style.height = '100%';
     page.append(card);
     
 
@@ -160,6 +220,7 @@ function displayWeather(){
 window.onload = function(){
     fetchGeneralNews();
     fetchWeatherData();
+    getMostActiveStockData();
 };
 
 const fetchGeneralNews = async () => {
@@ -270,9 +331,6 @@ const fetchQueryNews = async () => {
     displayNews();
 }
 
-
-
-
 function displayNews(){
     
     newsDataArray.forEach(news =>{
@@ -284,6 +342,11 @@ function displayNews(){
         link.setAttribute("target", "blank");
         link.href = news.url;
         link.innerHTML = "Learn More..";
+
+        let saveBtn = document.createElement('div');
+        saveBtn.className = "btn btn-dark float-end";
+        saveBtn.innerHTML = "Save";
+        saveBtn.addEventListener('click ', saveItem());
 
         var colum = document.createElement('div');
         colum.className = "col-lg-6 col-sm-12 col-md-6";
@@ -304,22 +367,20 @@ function displayNews(){
         var cardBody = document.createElement('div');
         cardBody.classList.add('card-body');
         var newsHeading = document.createElement('div');
+        newsHeading.style.textAlign = 'center';
         newsHeading.className = "card-title fw-bold container";
         newsHeading.innerHTML = news.title;
 
         let dateHeading = document.createElement('h6');
         dateHeading.className = "text-dark";
         dateHeading.innerHTML = date[0];
-
-        let descritpion = document.createElement('p');
-        descritpion.className = "text-dark";
-        descritpion.innerHTML = news.descritpion;
+    
 
         cardBody.appendChild(newsHeading);
         cardBody.appendChild(img);
         cardBody.appendChild(dateHeading);
-        cardBody.appendChild(descritpion);
         cardBody.appendChild(link);
+        cardBody.appendChild(saveBtn);
         
         card.appendChild(cardBody);
         card.classList.add('border-0', 'my-2');
@@ -330,6 +391,11 @@ function displayNews(){
 
     });
 }
+
+function saveItem(){
+
+}
+
 
 //functions 
 generalBtn.addEventListener("click", function(){

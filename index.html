@@ -15,25 +15,27 @@
     <title>Knewsfeed</title>
   </head>
 
-    <body class="container-fluid">
+    <body class="container-fluid vh-90">
 
       <nav class="navbar text-black mx-2" >
-        <div class="d-flex vw-100" > 
-          <h1 class="display-5" id="pageTitle"><a href="/index.html">KnewsFeed</a></h1>
-          <div id="Header" class="position-absolute ms-auto end-0 opacity-50 " style="width: 32%; height: 90%;"></div>
+        <div class="vw-100" id="navBox"> 
+          <h2 class="display-6 align-self-center" id="pageTitle"><a href="/index.html">KnewsFeed</a></h2>
+          <div class="d-flex ms-1 p-2 mb-1" id="searchBox" style="width: 50%; height: 7%;">
+            <img src="./images/search.png" class="border-end me-1 px-2" style="width:6%;" alt="search">
+            <input type="text" placeholder="What are you looking for..?" class="mx-2 bg-transparent" style="width: 100%;" id="newsQuery">
+          </div>
+
         </div>
 
-        <div class="d-flex ms-1 p-2" id="searchBox" style="width: 66%;">
-        <img src="./images/search.png" class="border-end me-1 px-2" style="width:5%;" alt="search">
-        <input type="text" placeholder="What are you looking for..?" class="my-2 mx-2 bg-transparent" style="width: 100%;" id="newsQuery">
-        </div>
-
+        <div id="Header" class=" end-0 top-0 mt-2" style="width: 30%; height: 10vh;"></div>
       </nav>
-    
 
-      <section class="container-fluid d-flex align-baseline m-0" id="newsSection">
+      <marquee behavior="scroll" direction="left" class="mb-1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. A delectus dignissimos vel, exercitationem quisquam non? Architecto magni 
+        blanditiis amet ad reprehenderit. Inventore praesentium alias quaerat. Vel saepe sapiente laudantium repellat.</marquee>
+
+      <section class="container d-flex mb-1" id="newsSection">
         
-        <div class="news-sections btn-group d-inline-block align-top my-2 mx-1 bg-light col-2" id="options" style="height: fit-content;">
+        <div class="news-sections btn-group d-inline-block align-top mx-1 bg-light col-1" id="options" style="height: fit-content;">
           <ul class="list-group list-unstyled position-stick">
             
           <li><input type="radio" name="choose-news" id="pageName" class="btn-check" autocomplete="off" style="height: 14.25%;">
@@ -56,22 +58,21 @@
 
                   <li>
                     <input type="radio" name="choose-news" id="culture-radio" class="btn-check" autocomplete="off" style="height: 14.25%;">
-                    <label for="culture-radio" class="btn btn-outline-warning list-group-item btn-sm text-black fs-italic py-4 border-0">Entertainment</label></li>
-
+                    <label for="culture-radio" class="btn btn-outline-warning list-group-item btn-sm text-black fs-italic py-4 border-0">Culture</label></li>
+<!-- 
                     <li>
                       <input type="radio" name="choose-news" id="save-radio" class="btn-check" autocomplete="off" style="height: 14.25%;">
-                      <label for="save-radio" class="btn btn-outline-info btn-sm list-group-item rounded text-black fs-italic py-4 border-0">Saved</label></li>
+                      <label for="save-radio" class="btn btn-outline-info btn-sm list-group-item rounded text-black fs-italic py-4 border-0">Saved</label></li> -->
           </ul>
         </div>
         
 
-      <div class="col-7 my-2 mx-1 row p-2" id="newsType"></div>
+      <div class="col-7 mx-1 row p-2" id="newsType"></div>
 
 
-      <div class="col-3 justify-content-center align-items-center my-2 text-center" id="stockSection">
-
-        <div id="buttonContainer" class="m-2 btn-group align-top">
-
+      <div class="col-4 justify-content-center align-items-center text-center" id="stockSection">
+        <h5 class="header-5 align-items-center my-2"> Most Active Stocks</h5>
+        <!-- <div id="buttonContainer" class="m-2 btn-group align-top">
           <ul class="list-group list-group-horizontal list-unstyled">
             <li >
               <input type="radio" name="choose-stock" id="mostActive-radio" class="btn-check" autocomplete="off">
@@ -82,17 +83,13 @@
                     <label for="trending-radio" class="btn btn-outline-success btn-sm list-group-item btn-sm text-black fs-italic py-4 border-0">Trending</label></li>
             </li>
           </ul>
-        </div>
+        </div> -->
 
+    
       </div>
   
       </section>
 
-
-      <footer class="container-fluid text-white vw-100">
-        
-      </footer>
-    
     
   
 
